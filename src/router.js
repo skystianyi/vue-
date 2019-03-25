@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from './views/Login.vue'
 import Reg from './views/Reg.vue'
 import Detail from './views/Detail.vue'
+import Cart from './views/List.vue'
 
 
 Vue.use(Router);
@@ -24,6 +25,10 @@ const router=new Router({
     path:'/detail',
     name:'Detail',
     component:Detail,
+  },{
+    path:'/cart',
+    name:'Cart',
+    component:Cart,
   }]
 
 
