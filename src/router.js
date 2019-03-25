@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login.vue'
 import Reg from './views/Reg.vue'
+import Detail from './views/Detail.vue'
 
 
 Vue.use(Router);
@@ -19,6 +20,10 @@ const router=new Router({
       path:'/reg',
       name:'Reg',
       component:Reg
+  },{
+    path:'/detail',
+    name:'Detail',
+    component:Detail,
   }]
 
 
