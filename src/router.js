@@ -4,7 +4,7 @@ import Login from './views/Login.vue'
 import Reg from './views/Reg.vue'
 import Detail from './views/Detail.vue'
 import Cart from './views/List.vue'
-
+import Home from './views/Home.vue'
 
 Vue.use(Router);
 
@@ -29,22 +29,16 @@ const router=new Router({
     path:'/cart',
     name:'Cart',
     component:Cart,
-  }]
+  },{
+    path:'/',
+    name:'Home',
+    component:Home,
+}]
 
 
 })
 
-/* router.beforeEach(function(to,from,next){
 
-/* console.group('路由跳转之前')
-console.log(to)
-console.log(from)
-console.log(next)
-console.groupEnd()
-next();
- 
-
-}); */
 export default router;
 
 
