@@ -4,7 +4,7 @@ import Login from './views/Login.vue'
 import Reg from './views/Reg.vue'
 import Detail from './views/Detail.vue'
 import Cart from './views/List.vue'
-import Home from './views/Home.vue'
+//import Home from './views/Home.vue'
 
 Vue.use(Router);
 
@@ -29,11 +29,11 @@ const router=new Router({
     path:'/cart',
     name:'Cart',
     component:Cart,
-  },{
+  },/* {
     path:'/',
     name:'Home',
     component:Home,
-}]
+} */]
 
 
 })

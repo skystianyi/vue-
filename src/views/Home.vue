@@ -96,24 +96,40 @@
 		</div>
 <div class="bigbox">
 		<div class="main">
-		<swiper :options="swiperOption" class="swiper-wrap"  ref="mySwiper" v-if="banner.length!=0"> 
-			<swiper-slide v-for="(item,index) in banner" :key="index" >
-				<img :src="item.url" alt="" @click="toDetail" />
-				</swiper-slide>
-				 <div class="swiper-pagination"  v-for="(item,index) in banner" :key="index" slot="pagination" ></div> 
-				</swiper> 
-					
-	 
+		<!--  <swiper :options="swiperOption" class="swiper-wrap"  ref="mySwiper" v-if="banner.length!=0"> 
+			<swiper-slide v-for="(item,index) in banner" :key="index" > -->
+			<div class="lunbo"  @click='toDetail' v-for="(item,index) in banner" :key="index">
+					<img :src="item.url" alt="" />
+				<!-- <img class="ig" src="../images/l1.jpg" />
+		     	<img class="ig" src="../images/l2.jpg" />
+				<img class="ig" src="../images/lunbo3.jpg" />
+				<img class="ig" src="../images/lunbo4.jpg" />
+				<img class="ig" src="../images/lunbo5.jpg" />
+				<img class="ig" src="../images/lunbo6.jpg" />
+				<img class="ig" src="../images/lunbo7.jpg" />
+				<img class="ig" src="../images/lunbo8.jpg" /> -->
+			</div>
+			
+     		
+    		
+  			<!-- </swiper-slide> -->
+  			<!-- 常见的小圆点 -->
+  			<!-- <div class="swiper-pagination"  v-for="(item,index) in banner" :key="index" slot="pagination" ></div>
+			</swiper> -->
+			<!-- 显示数字 -->
+		<!-- 	<div class="number">{{imgIndex}}/{{detailimages.length}}</div>
+ -->
 
 
 
 
 
 
-			<!-- <div class="btn btn1">></div>
+
+			<div class="btn btn1">></div>
 			<div class="btn btn2">
-				</div> -->
-					<!-- <ul id="num">
+				</div>
+					<ul id="num">
 						<li class="li"></li>
 						<li class="li"></li>
 						<li class="li"></li>
@@ -122,7 +138,7 @@
 						<li class="li"></li>
 						<li class="li"></li>
 						<li class="li"></li>
-					</ul> -->
+					</ul>
 
 					<div class="center">
 						<img @click="toDetail" src="../images/c1.jpg" />
@@ -513,7 +529,6 @@
 <script>
 import '../fonts/iconfont.css'
 import '../css/shouyestyle.css'
-import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 
 export default {
@@ -537,10 +552,6 @@ export default {
 			url:require('../images/lunbo7.jpg')
 		},{
 			url:require('../images/lunbo8.jpg')
-		},{
-				url:require('../images/l1.jpg')
-		},{
-				url:require('../images/l2.jpg')
 		}],
     
     
@@ -623,18 +634,5 @@ export default {
 
 <style>
 
-.swiper-container{
-	width:590px;
-	position: absolute;
-	margin-left:280px;
-}
-.swiper-pagination{
-  background:pink;
-	opacity: 0.8;
-
-}
-/* .swiper-pagination-bullet{
-	margin-top:-100px;
-} */
 </style>
 
