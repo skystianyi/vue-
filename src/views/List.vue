@@ -1,28 +1,11 @@
 <template>
-  <div class="list">
-    <!-- <van-card
-    v-for="product in products"
-      :num="product.quantity"
-      :price="product.price"
-      :desc="product.descriptions"  
-      :title="product.name"
-      :thumb="product.img"
-      :key="product._id"
-      :thumb-link="`#/list/${product._id}`"
->
-<div slot="footer">
-    <van-button size="mini">购买</van-button>
-    <van-button size="mini" @click="add(product._id)" ><van-icon name="cart"  class="icon"/></van-button>
-  </div>
-
-  </van-card>
-  <van-button size="large" @click="loadmore">加载更多</van-button> -->
+<div>
   <div class="am-container header">
-  <ul class="message-l">
+			<ul class="message-l">
 				<div class="topMessage">
 					<div class="menu-hd">
-						<a href="#" target="_top" class="h" @click="Login">亲，请登录</a>
-						<a href="#" target="_top" @click="Reg">免费注册</a>
+						<a href="#" target="_top" class="h">亲，请登录</a>
+						<a href="#" target="_top">免费注册</a>
 					</div>
 				</div>
 			</ul>
@@ -40,7 +23,7 @@
 					<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
           </div>
 			</ul>
-      </div>
+			</div>
       <div class="nav white">
 				<div class="logo"><img src="../images/logo.png" /></div>
 				<div class="logoBig">
@@ -51,463 +34,569 @@
 					<a name="index_none_header_sysc" href="#"></a>
 					<form>
 						<input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
-						<input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
+						<input id="ai-topsearch" class="submit am-btn"  value="搜索" index="1" type="submit">
 					</form>
 				</div>
 			</div>
 
 			<div class="clear"></div>
-      <div class="concent">
-				<div id="cartTable">
-					<div class="cart-table-th">
-						<div class="wp">
-							<div class="th th-chk">
-								<div id="J_SelectAll1" class="select-all J_SelectAll">
-
-								</div>
-							</div>
-							<div class="th th-item">
-								<div class="td-inner">商品信息</div>
-							</div>
-							<div class="th th-price">
-								<div class="td-inner">单价</div>
-							</div>
-							<div class="th th-amount">
-								<div class="td-inner">数量</div>
-							</div>
-							<div class="th th-sum">
-								<div class="td-inner">金额</div>
-							</div>
-							<div class="th th-op">
-								<div class="td-inner">操作</div>
-							</div>
+			<b class="line"></b>
+           <div class="search">
+			<div class="search-list">
+			<div class="nav-table">
+					   <div class="long-title"><span class="all-goods">全部分类</span></div>
+					   <div class="nav-cont">
+							<ul>
+								<li class="index"><a href="#">首页</a></li>
+                                <li class="qc"><a href="#">闪购</a></li>
+                                <li class="qc"><a href="#">限时抢</a></li>
+                                <li class="qc"><a href="#">团购</a></li>
+                                <li class="qc last"><a href="#">大包装</a></li>
+							</ul>
+						    <div class="nav-extra">
+						    	<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
+						    	<i class="am-icon-angle-right" style="padding-left: 10px;"></i>
+						    </div>
 						</div>
-					</div>
-					<div class="clear"></div>
+			</div>
+			
+				
+					<div class="am-g am-g-fixed" >
+						<div class="am-u-sm-12 am-u-md-12">
+	                  	<div class="theme-popover">														
+							<div class="searchAbout">
+								<span class="font-pale">相关搜索：</span>
+								<a title="坚果" href="#">坚果</a>
+								<a title="瓜子" href="#">瓜子</a>
+								<a title="鸡腿" href="#">豆干</a>
 
-					<tr class="item-list">
-						<div class="bundle  bundle-last ">
-							<div class="bundle-hd">
-								<div class="bd-promos">
-									<div class="bd-has-promo">已享优惠:<span class="bd-has-promo-content">省￥19.50</span>&nbsp;&nbsp;</div>
-									<div class="act-promo">
-										<a href="#" target="_blank">第二支半价，第三支免费<span class="gt">&gt;&gt;</span></a>
-									</div>
-									<span class="list-change theme-login">编辑</span>
+							</div>
+							<ul class="select">
+								<p class="title font-normal">
+									<span class="fl">松子</span>
+									<span class="total fl">搜索到<strong class="num">997</strong>件相关商品</span>
+								</p>
+								<div class="clear"></div>
+								<li class="select-result">
+									<dl>
+										<dt>已选</dt>
+										<dd class="select-no"></dd>
+										<p class="eliminateCriteria">清除</p>
+									</dl>
+								</li>
+								<div class="clear"></div>
+								<li class="select-list">
+									<dl id="select1">
+										<dt class="am-badge am-round">品牌</dt>	
+									
+										 <div class="dd-conent">										
+											<dd class="select-all selected"><a href="#">全部</a></dd>
+											<dd><a href="#">百草味</a></dd>
+											<dd><a href="#">良品铺子</a></dd>
+											<dd><a href="#">新农哥</a></dd>
+											<dd><a href="#">楼兰蜜语</a></dd>
+											<dd><a href="#">口水娃</a></dd>
+											<dd><a href="#">考拉兄弟</a></dd>
+										 </div>
+						
+									</dl>
+								</li>
+								<li class="select-list">
+									<dl id="select2">
+										<dt class="am-badge am-round">种类</dt>
+										<div class="dd-conent">
+											<dd class="select-all selected"><a href="#">全部</a></dd>
+											<dd><a href="#">东北松子</a></dd>
+											<dd><a href="#">巴西松子</a></dd>
+											<dd><a href="#">夏威夷果</a></dd>
+											<dd><a href="#">松子</a></dd>
+										</div>
+									</dl>
+								</li>
+								<li class="select-list">
+									<dl id="select3">
+										<dt class="am-badge am-round">选购热点</dt>
+										<div class="dd-conent">
+											<dd class="select-all selected"><a href="#">全部</a></dd>
+											<dd><a href="#">手剥松子</a></dd>
+											<dd><a href="#">薄壳松子</a></dd>
+											<dd><a href="#">进口零食</a></dd>
+											<dd><a href="#">有机零食</a></dd>
+										</div>
+									</dl>
+								</li>
+					        
+							</ul>
+							<div class="clear"></div>
+                        </div>
+							<div class="search-content" >
+								<div class="sort">
+									<li class="first"><a title="综合">综合排序</a></li>
+									<li><a title="销量">销量排序</a></li>
+									<li><a title="价格">价格优先</a></li>
+									<li class="big"><a title="评价" href="#">评价为主</a></li>
 								</div>
+								<div class="clear"></div>
+
+								<ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 boxes" id="baicao">
+									<li v-for="item in products" :key="item._id">
+										<div class="i-pic limit">
+											<img :src="'http://api.cat-shop.penkuoer.com'+item.coverImg" @click="Detail(item._id)"/>											
+											<p class="title fl">{{item.name}}</p>
+											<p class="price fl">
+												<b>¥</b>
+												<strong>{{item.price}}</strong>
+											</p>
+											<p class="number fl">
+												销量<span>{{item.quantity}}</span>
+											</p>
+										</div>
+									</li>
+									<!-- <li>
+										<div class="i-pic limit">
+											
+											<img src="../images/imgsearch1.jpg" />
+											<p class="title fl">手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
+											<p class="price fl">
+												<b>¥</b>
+												<strong>56.90</strong>
+											</p>
+											<p class="number fl">
+												销量<span>1110</span>
+											</p>
+										</div>
+									</li>
+									<li>
+										<div class="i-pic limit">
+											
+											<img src="../images/imgsearch1.jpg" />
+											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
+											<p class="price fl">
+												<b>¥</b>
+												<strong>56.90</strong>
+											</p>
+											<p class="number fl">
+												销量<span>1110</span>
+											</p>
+										</div>
+									</li>
+									<li>
+										<div class="i-pic limit">
+											
+											<img src="../images/imgsearch1.jpg" />
+											<p class="title fl">手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
+											<p class="price fl">
+												<b>¥</b>
+												<strong>56.90</strong>
+											</p>
+											<p class="number fl">
+												销量<span>1110</span>
+											</p>
+										</div>
+									</li>
+									<li>
+										<div class="i-pic limit">
+											
+											<img src="../images/imgsearch1.jpg" />
+											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
+											<p class="price fl">
+												<b>¥</b>
+												<strong>56.90</strong>
+											</p>
+											<p class="number fl">
+												销量<span>1110</span>
+											</p>
+										</div>
+									</li>
+									<li>
+										<div class="i-pic limit">
+											
+											<img src="../images/imgsearch1.jpg" />
+											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
+											<p class="price fl">
+												<b>¥</b>
+												<strong>56.90</strong>
+											</p>
+											<p class="number fl">
+												销量<span>1110</span>
+											</p>
+										</div>
+									</li>
+									<li>
+										<div class="i-pic limit">
+											
+											<img src="../images/imgsearch1.jpg" />
+											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
+											<p class="price fl">
+												<b>¥</b>
+												<strong>56.90</strong>
+											</p>
+											<p class="number fl">
+												销量<span>1110</span>
+											</p>
+										</div>
+									</li>
+									<li>
+										<div class="i-pic limit">
+											
+											<img src="../images/imgsearch1.jpg" />
+											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
+											<p class="price fl">
+												<b>¥</b>
+												<strong>56.90</strong>
+											</p>
+											<p class="number fl">
+												销量<span>1110</span>
+											</p>
+										</div>
+									</li>
+									<li>
+										<div class="i-pic limit">
+											
+											<img src="../images/imgsearch1.jpg" />
+											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
+											<p class="price fl">
+												<b>¥</b>
+												<strong>56.90</strong>
+											</p>
+											<p class="number fl">
+												销量<span>1110</span>
+											</p>
+										</div>
+									</li>
+									<li>
+										<div class="i-pic limit">
+											
+											<img src="../images/imgsearch1.jpg" />
+											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
+											<p class="price fl">
+												<b>¥</b>
+												<strong>56.90</strong>
+											</p>
+											<p class="number fl">
+												销量<span>1110</span>
+											</p>
+										</div>
+									</li>
+									<li>
+										<div class="i-pic limit">
+											
+											<img src="../images/imgsearch1.jpg" />
+											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
+											<p class="price fl">
+												<b>¥</b>
+												<strong>56.90</strong>
+											</p>
+											<p class="number fl">
+												销量<span>1110</span>
+											</p>
+										</div>
+									</li>
+									<li>
+										<div class="i-pic limit">
+											
+											<img src="../images/imgsearch1.jpg" />
+											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
+											<p class="price fl">
+												<b>¥</b>
+												<strong>56.90</strong>
+											</p>
+											<p class="number fl">
+												销量<span>1110</span>
+											</p>
+										</div>
+									</li> -->
+								</ul>
+							</div>
+							<div class="search-side">
+
+								<div class="side-title">
+									经典搭配
+								</div>
+
+								<li>
+									<div class="i-pic check">
+										<img src="../images/cp.jpg" />
+										<p class="check-title">萨拉米 1+1小鸡腿</p>
+										<p class="price fl">
+											<b>¥</b>
+											<strong>29.90</strong>
+										</p>
+										<p class="number fl">
+											销量<span>1110</span>
+										</p>
+									</div>
+								</li>
+								<li>
+									<div class="i-pic check">
+										<img src="../images/cp2.jpg" />
+										<p class="check-title">ZEK 原味海苔</p>
+										<p class="price fl">
+											<b>¥</b>
+											<strong>8.90</strong>
+										</p>
+										<p class="number fl">
+											销量<span>1110</span>
+										</p>
+									</div>
+								</li>
+								<li>
+									<div class="i-pic check">
+										<img src="../images/cp.jpg" />
+										<p class="check-title">萨拉米 1+1小鸡腿</p>
+										<p class="price fl">
+											<b>¥</b>
+											<strong>29.90</strong>
+										</p>
+										<p class="number fl">
+											销量<span>1110</span>
+										</p>
+									</div>
+								</li>
+
 							</div>
 							<div class="clear"></div>
-							<div class="bundle-main">
-								<ul class="item-content clearfix">
-									<li class="td td-chk">
-										<div class="cart-checkbox ">
-											<input class="check" id="J_CheckBox_170037950254" name="items[]" value="170037950254" type="checkbox">
-											<label for="J_CheckBox_170037950254"></label>
-										</div>
-									</li>
-									<li class="td td-item">
-										<div class="item-pic">
-											<a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">
-												<img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
-										</div>
-										<div class="item-info">
-											<div class="item-basic-info">
-												<a href="#" target="_blank" title="美康粉黛醉美唇膏 持久保湿滋润防水不掉色" class="item-title J_MakePoint" data-point="tbcart.8.11">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</a>
-											</div>
-										</div>
-									</li>
-									<li class="td td-info">
-										<div class="item-props item-props-can">
-											<span class="sku-line">颜色：12#川南玛瑙</span>
-											<span class="sku-line">包装：裸装</span>
-											<span tabindex="0" class="btn-edit-sku theme-login">修改</span>
-											<i class="theme-login am-icon-sort-desc"></i>
-										</div>
-									</li>
-									<li class="td td-price">
-										<div class="item-price price-promo-promo">
-											<div class="price-content">
-												<div class="price-line">
-													<em class="price-original">78.00</em>
-												</div>
-												<div class="price-line">
-													<em class="J_Price price-now" tabindex="0">39.00</em>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li class="td td-amount">
-										<div class="amount-wrapper ">
-											<div class="item-amount ">
-												<div class="sl">
-													<input class="min am-btn" name="" type="button" value="-" />
-													<input class="text_box" name="" type="text" value="3" style="width:30px;" />
-													<input class="add am-btn" name="" type="button" value="+" />
-												</div>
-											</div>
-										</div>
-									</li>
-									<li class="td td-sum">
-										<div class="td-inner">
-											<em tabindex="0" class="J_ItemSum number">117.00</em>
-										</div>
-									</li>
-									<li class="td td-op">
-										<div class="td-inner">
-											<a title="移入收藏夹" class="btn-fav" href="#">
-                  移入收藏夹</a>
-											<a href="javascript:;" data-point-url="#" class="delete">
-                  删除</a>
-										</div>
-									</li>
-								</ul>
-								
-								
-								
-								
-								<ul class="item-content clearfix">
-									<li class="td td-chk">
-										<div class="cart-checkbox ">
-											<input class="check" id="J_CheckBox_170037950254" name="items[]" value="170037950254" type="checkbox">
-											<label for="J_CheckBox_170037950254"></label>
-										</div>
-									</li>
-									<li class="td td-item">
-										<div class="item-pic">
-											<a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">
-												<img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
-										</div>
-										<div class="item-info">
-											<div class="item-basic-info">
-												<a href="#" target="_blank" title="美康粉黛醉美唇膏 持久保湿滋润防水不掉色" class="item-title J_MakePoint" data-point="tbcart.8.11">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</a>
-											</div>
-										</div>
-									</li>
-									<li class="td td-info">
-										<div class="item-props item-props-can">
-											<span class="sku-line">颜色：12#川南玛瑙</span>
-											<span class="sku-line">包装：裸装</span>
-											<span tabindex="0" class="btn-edit-sku theme-login">修改</span>
-											<i class="theme-login am-icon-sort-desc"></i>
-										</div>
-									</li>
-									<li class="td td-price">
-										<div class="item-price price-promo-promo">
-											<div class="price-content">
-												<div class="price-line">
-													<em class="price-original">78.00</em>
-												</div>
-												<div class="price-line">
-													<em class="J_Price price-now" tabindex="0">39.00</em>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li class="td td-amount">
-										<div class="amount-wrapper ">
-											<div class="item-amount ">
-												<div class="sl">
-													<input class="min am-btn" name="" type="button" value="-" />
-													<input class="text_box" name="" type="text" value="3" style="width:30px;" />
-													<input class="add am-btn" name="" type="button" value="+" />
-												</div>
-											</div>
-										</div>
-									</li>
-									<li class="td td-sum">
-										<div class="td-inner">
-											<em tabindex="0" class="J_ItemSum number">117.00</em>
-										</div>
-									</li>
-									<li class="td td-op">
-										<div class="td-inner">
-											<a title="移入收藏夹" class="btn-fav" href="#">
-                  移入收藏夹</a>
-											<a href="javascript:;" data-point-url="#" class="delete">
-                  删除</a>
-										</div>
-									</li>
-								</ul>
-													
-								
-								
-								
-							</div>
-						</div>
-					</tr>
-					<div class="clear"></div>
+							<!--分页 -->
+							<ul class="am-pagination am-pagination-right">
+								<li class="am-disabled"><a href="#">&laquo;</a></li>
+								<li class="am-active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">&raquo;</a></li>
+							</ul>
 
-					<tr class="item-list">
-						<div class="bundle  bundle-last ">
-							<div class="bundle-hd">
-								<div class="bd-promos">
-									<div class="bd-has-promo">已享优惠:<span class="bd-has-promo-content">省￥19.50</span>&nbsp;&nbsp;</div>
-									<div class="act-promo">
-										<a href="#" target="_blank">第二支半价，第三支免费<span class="gt">&gt;&gt;</span></a>
-									</div>
-									<span class="list-change theme-login">编辑</span>
-								</div>
-							</div>
-							<div class="clear"></div>
-							<div class="bundle-main">
-								<ul class="item-content clearfix">
-									<li class="td td-chk">
-										<div class="cart-checkbox ">
-											<input class="check" id="J_CheckBox_170769542747" name="items[]" value="170769542747" type="checkbox">
-											<label for="J_CheckBox_170769542747"></label>
-										</div>
-									</li>
-									<li class="td td-item">
-										<div class="item-pic">
-											<a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">
-												<img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
-										</div>
-										<div class="item-info">
-											<div class="item-basic-info">
-												<a href="#" target="_blank" title="美康粉黛醉美唇膏 持久保湿滋润防水不掉色" class="item-title J_MakePoint" data-point="tbcart.8.11">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</a>
-											</div>
-										</div>
-									</li>
-									<li class="td td-info">
-										<div class="item-props item-props-can">
-											<span class="sku-line">颜色：10#蜜橘色</span>
-											<span class="sku-line">包装：两支手袋装（送彩带）</span>
-											<span tabindex="0" class="btn-edit-sku theme-login">修改</span>
-											<i class="theme-login am-icon-sort-desc"></i>
-										</div>
-									</li>
-									<li class="td td-price">
-										<div class="item-price price-promo-promo">
-											<div class="price-content">
-												<div class="price-line">
-													<em class="price-original">78.00</em>
-												</div>
-												<div class="price-line">
-													<em class="J_Price price-now" tabindex="0">39.00</em>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li class="td td-amount">
-										<div class="amount-wrapper ">
-											<div class="item-amount ">
-												<div class="sl">
-													<input class="min am-btn" name="" type="button" value="-" />
-													<input class="text_box" name="" type="text" value="3" style="width:30px;" />
-													<input class="add am-btn" name="" type="button" value="+" />
-												</div>
-											</div>
-										</div>
-									</li>
-									<li class="td td-sum">
-										<div class="td-inner">
-											<em tabindex="0" class="J_ItemSum number">117.00</em>
-										</div>
-									</li>
-									<li class="td td-op">
-										<div class="td-inner">
-											<a title="移入收藏夹" class="btn-fav" href="#">
-                  移入收藏夹</a>
-											<a href="javascript:;" data-point-url="#" class="delete">
-                  删除</a>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</tr>
-				</div>
-				<div class="clear"></div>
-
-				<div class="float-bar-wrapper">
-					<div id="J_SelectAll2" class="select-all J_SelectAll">
-						<div class="cart-checkbox">
-							<input class="check-all check" id="J_SelectAllCbx2" name="select-all" value="true" type="checkbox">
-							<label for="J_SelectAllCbx2"></label>
-						</div>
-						<span>全选</span>
-					</div>
-					<div class="operations">
-						<a href="#" hidefocus="true" class="deleteAll">删除</a>
-						<a href="#" hidefocus="true" class="J_BatchFav">移入收藏夹</a>
-					</div>
-					<div class="float-bar-right">
-						<div class="amount-sum">
-							<span class="txt">已选商品</span>
-							<em id="J_SelectedItemsCount">0</em><span class="txt">件</span>
-							<div class="arrow-box">
-								<span class="selected-items-arrow"></span>
-								<span class="arrow"></span>
-							</div>
-						</div>
-						<div class="price-sum">
-							<span class="txt">合计:</span>
-							<strong class="price">¥<em id="J_Total">0.00</em></strong>
-						</div>
-						<div class="btn-area">
-							<a href="pay.html" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
-								<span>结&nbsp;算</span></a>
 						</div>
 					</div>
-
-				</div>
-
-				<div class="footer">
-					<div class="footer-hd">
-						<p>
-							<a href="#">恒望科技</a>
-							<b>|</b>
-							<a href="#">商城首页</a>
-							<b>|</b>
-							<a href="#">支付宝</a>
-							<b>|</b>
-							<a href="#">物流</a>
-						</p>
-					</div>
-					<div class="footer-bd">
-						<p>
-							<a href="#">关于恒望</a>
-							<a href="#">合作伙伴</a>
-							<a href="#">联系我们</a>
-							<a href="#">网站地图</a>
-							<em>© 2015-2025 Hengwang.com 版权所有. 更多模板 <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></em>
-						</p>
+					<div class="footer">
+						<div class="footer-hd">
+							<p>
+								<a href="#">恒望科技</a>
+								<b>|</b>
+								<a href="#">商城首页</a>
+								<b>|</b>
+								<a href="#">支付宝</a>
+								<b>|</b>
+								<a href="#">物流</a>
+							</p>
+						</div>
+						<div class="footer-bd">
+							<p>
+								<a href="#">关于恒望</a>
+								<a href="#">合作伙伴</a>
+								<a href="#">联系我们</a>
+								<a href="#">网站地图</a>
+								<em>© 2015-2025 Hengwang.com 版权所有. 更多模板 <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></em>
+							</p>
+						</div>
 					</div>
 				</div>
 
 			</div>
 
-			<!--操作页面-->
-
-			<div class="theme-popover-mask"></div>
-
-			<div class="theme-popover">
-				<div class="theme-span"></div>
-				<div class="theme-poptit h-title">
-					<a href="javascript:;" title="关闭" class="close">×</a>
-				</div>
-				<div class="theme-popbod dform">
-					<form class="theme-signin" name="loginform" action="" method="post">
-
-						<div class="theme-signin-left">
-
-							<li class="theme-options">
-								<div class="cart-title">颜色：</div>
-								<ul>
-									<li class="sku-line selected">12#川南玛瑙<i></i></li>
-									<li class="sku-line">10#蜜橘色+17#樱花粉<i></i></li>
-								</ul>
-							</li>
-							<li class="theme-options">
-								<div class="cart-title">包装：</div>
-								<ul>
-									<li class="sku-line selected">包装：裸装<i></i></li>
-									<li class="sku-line">两支手袋装（送彩带）<i></i></li>
-								</ul>
-							</li>
-							<div class="theme-options">
-								<div class="cart-title number">数量</div>
-								<dd>
-									<input class="min am-btn am-btn-default" name="" type="button" value="-" />
-									<input class="text_box" name="" type="text" value="1" style="width:30px;" />
-									<input class="add am-btn am-btn-default" name="" type="button" value="+" />
-									<span  class="tb-hidden">库存<span class="stock">1000</span>件</span>
-								</dd>
-
-							</div>
-							<div class="clear"></div>
-							<div class="btn-op">
-								<div class="btn am-btn am-btn-warning">确认</div>
-								<div class="btn close am-btn am-btn-warning">取消</div>
-							</div>
-
-						</div>
-						<div class="theme-signin-right">
-							<div class="img-info">
-								<img src="../images/kouhong.jpg_80x80.jpg" />
-							</div>
-							<div class="text-info">
-								<span class="J_Price price-now">¥39.00</span>
-								<span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
-							</div>
-						</div>
-
-					</form>
-				</div>
-			</div>
 		<!--引导 -->
 		<div class="navCir">
 			<li><a href="home2.html"><i class="am-icon-home "></i>首页</a></li>
 			<li><a href="sort.html"><i class="am-icon-list"></i>分类</a></li>
-			<li class="active"><a href="shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>	
+			<li><a href="shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>	
 			<li><a href="../person/index.html"><i class="am-icon-user"></i>我的</a></li>					
 		</div>
-  </div>
-</template>
-<script type="text/javascript" src="../js/jquery.js"></script>
-<script>
- import "../AmazeUI-2.4.2/assets/css/amazeui.css";
- import "../basic/css/demo.css";
- import "../css/cartstyle.css";
- import "../css/optstyle.css"; 
 
-//import {products} from '../data'
+		<!--菜单 -->
+		<div class=tip>
+			<div id="sidebar">
+				<div id="wrap">
+					<div id="prof" class="item">
+						<a href="#">
+							<span class="setting"></span>
+						</a>
+						<div class="ibar_login_box status_login">
+							<div class="avatar_box">
+								<p class="avatar_imgbox"><img src="../images/no-img_mid_.jpg" /></p>
+								<ul class="user_info">
+									<li>用户名：sl1903</li>
+									<li>级&nbsp;别：普通会员</li>
+								</ul>
+							</div>
+							<div class="login_btnbox">
+								<a href="#" class="login_order">我的订单</a>
+								<a href="#" class="login_favorite">我的收藏</a>
+							</div>
+							<i class="icon_arrow_white"></i>
+						</div>
+
+					</div>
+					<div id="shopCart" class="item">
+						<a href="#">
+							<span class="message"></span>
+						</a>
+						<p>
+							购物车
+						</p>
+						<p class="cart_num">0</p>
+					</div>
+					<div id="asset" class="item">
+						<a href="#">
+							<span class="view"></span>
+						</a>
+						<div class="mp_tooltip">
+							我的资产
+							<i class="icon_arrow_right_black"></i>
+						</div>
+					</div>
+
+					<div id="foot" class="item">
+						<a href="#">
+							<span class="zuji"></span>
+						</a>
+						<div class="mp_tooltip">
+							我的足迹
+							<i class="icon_arrow_right_black"></i>
+						</div>
+					</div>
+
+					<div id="brand" class="item">
+						<a href="#">
+							<span class="wdsc"><img src="../images/wdsc.png" /></span>
+						</a>
+						<div class="mp_tooltip">
+							我的收藏
+							<i class="icon_arrow_right_black"></i>
+						</div>
+					</div>
+
+					<div id="broadcast" class="item">
+						<a href="#">
+							<span class="chongzhi"><img src="../images/chongzhi.png" /></span>
+						</a>
+						<div class="mp_tooltip">
+							我要充值
+							<i class="icon_arrow_right_black"></i>
+						</div>
+					</div>
+
+					<div class="quick_toggle">
+						<li class="qtitem">
+							<a href="#"><span class="kfzx"></span></a>
+							<div class="mp_tooltip">客服中心<i class="icon_arrow_right_black"></i></div>
+						</li>
+						<!--二维码 -->
+						<li class="qtitem">
+							<a href="#none"><span class="mpbtn_qrcode"></span></a>
+							<div class="mp_qrcode" style="display:none;"><img src="../images/weixin_code_145.png" /><i class="icon_arrow_white"></i></div>
+						</li>
+						<li class="qtitem">
+							<a href="#top" class="return_top"><span class="top"></span></a>
+						</li>
+					</div>
+
+					<!--回到顶部 -->
+					<div id="quick_links_pop" class="quick_links_pop hide"></div>
+
+				</div>
+
+			</div>
+			<div id="prof-content" class="nav-content">
+				<div class="nav-con-close">
+					<i class="am-icon-angle-right am-icon-fw"></i>
+				</div>
+				<div>
+					我
+				</div>
+			</div>
+			<div id="shopCart-content" class="nav-content">
+				<div class="nav-con-close">
+					<i class="am-icon-angle-right am-icon-fw"></i>
+				</div>
+				<div>
+					购物车
+				</div>
+			</div>
+			<div id="asset-content" class="nav-content">
+				<div class="nav-con-close">
+					<i class="am-icon-angle-right am-icon-fw"></i>
+				</div>
+				<div>
+					资产
+				</div>
+
+				<div class="ia-head-list">
+					<a href="#" target="_blank" class="pl">
+						<div class="num">0</div>
+						<div class="text">优惠券</div>
+					</a>
+					<a href="#" target="_blank" class="pl">
+						<div class="num">0</div>
+						<div class="text">红包</div>
+					</a>
+					<a href="#" target="_blank" class="pl money">
+						<div class="num">￥0</div>
+						<div class="text">余额</div>
+					</a>
+				</div>
+
+			</div>
+			<div id="foot-content" class="nav-content">
+				<div class="nav-con-close">
+					<i class="am-icon-angle-right am-icon-fw"></i>
+				</div>
+				<div>
+					足迹
+				</div>
+			</div>
+			<div id="brand-content" class="nav-content">
+				<div class="nav-con-close">
+					<i class="am-icon-angle-right am-icon-fw"></i>
+				</div>
+				<div>
+					收藏
+				</div>
+			</div>
+			<div id="broadcast-content" class="nav-content">
+				<div class="nav-con-close">
+					<i class="am-icon-angle-right am-icon-fw"></i>
+				</div>
+				<div>
+					充值
+				</div>
+			</div>
+		</div>
+      </div>
+</template>
+<script>
+import '../basic/css/demo.css'
+import '../css/seastyle.css'
+import '../AmazeUI-2.4.2/assets/css/admin.css'
+import '../AmazeUI-2.4.2/assets/css/amazeui.css'
 import {get} from 'axios';
 export default {
-  data(){
-    return {
-      products:[],
-      page:1,
-      pagecount:1,
+  data(){ 
+    return{
+         products:[],
     }
-
   },
   created(){
-        this.loadData()
-  },
-  methods:{
-    prePage(){
-      this.$router.go(-1)
-    },
-    add(id){
-         alert(id)
-    },
-    loadmore(){
-      this.page +=1
-      this.loadData()
+       get('http://api.cat-shop.penkuoer.com/api/v1/products')
+       .then(res => {
+          console.log(res.data)
+          this.products=res.data.products
+		  console.log(this.products)
+        })
+	},
+	methods:{
+		Detail(id){
+			this.$router.push({
+				name:'Detail',
+				params:{
+					id
+				}
+			})
 		},
-			Login(){
-				this.$router.push({
-					name:'Login'
-				})
-			},
-			Reg(){
-				this.$router.push({
-					name:'Reg'
-				})
-			},
-    loadData(){
-      get(`http://localhost:3000/api/v1/products?page=${this.page}`)
-        .then(res => {
-          console.log(res)
-          this.products = this.products.concat(res.data.products)
-          this.pageCount = res.data.pages
-        })
-        .catch( err => {
-          //console.log(err)
-        })
-    }
-  }
+	}
+
 }
 </script>
-
 <style>
-  .list{
-   padding-bottom:60px 
-   }
-   .icon{
-     color:red;
-     font-size: 1.2rem
-   } 
+	#baicao img{width:280px;height:280px}
 </style>
-

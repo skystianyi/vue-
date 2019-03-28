@@ -1,7 +1,7 @@
 <template>
        <div>
 <div class="login-boxtitle">
-			<a href="home/demo.html"><img alt="" src="../images/logobig.png" /></a>
+			<a href="home/demo.html"><img alt="" src="../images/logobig.png"/></a>
 		</div>
 		<div class="res-banner">
 			<div class="res-main">
@@ -141,5 +141,9 @@ export default{
 	width:100%;
 	text-align:center;
 }
+.login-boxtitle img{
+  width: 133px;
+	height: 60px;
 
+}
 </style>

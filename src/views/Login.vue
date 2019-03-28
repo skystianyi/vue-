@@ -2,7 +2,7 @@
   <div>
     <div class="login-boxtitle">
       <a href="home.html">
-        <img alt="logo" src="../images/logobig.png">
+        <img alt="logo" src="../images/logobig.png" class="logo-11">
       </a>
     </div>
 
@@ -115,7 +115,6 @@ export default {
     return {
       userName: '',
       password: '',
-      serverUrl: '',
       checked: true,
       islogined:false
     };
@@ -136,7 +135,7 @@ export default {
         .then(res => {
           if (res.data.code == "success") {
             console.log(res);
-            loginIn(res.data.token);
+            loginIn(res.data.token,this.userName);
             alert("登录成功！");
             this.islogined=true;
             console.log(this.logined);
@@ -164,10 +163,16 @@ export default {
   display: block !important;
 }
 .title1{
-  font-size:20px!important
+   height:66px!important;
+   width:300px!important;
+  font-size:20px!important;
 }
 #user,#password{
   border:1px solid #ccc;
+}
+.logo-11{
+  width: 133px;
+  height: 60px;
 }
 </style>
 

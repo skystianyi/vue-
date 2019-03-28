@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="sy">
    <div class="head" id="header" v-if="show">
 			<a href="#"><img src="../images/head.jpg" /></a>
 			<span class="iconfont icon-cha" id="cha" @click="clearHandle"></span>
@@ -12,7 +12,7 @@
 						
 					</div>
 					<ul class="lists">
-
+						<img src="../images/nav.jpg" style="margin-left:20px"/>
 					</ul>
 				</div>
 				<div class="dingwei">
@@ -22,7 +22,7 @@
 
 				<ul class="list3">
 					<a href="#">
-						<li class="specil"><a class="hello" @click="toLogin">你好，请登录</a><em @click="toReg"><a >免费注册</a></em></li>
+						<li class="specil"><a class="hello" @click="toLogin" >{{init}}</a><em @click="toReg"><a >免费注册</a></em></li>
 					</a>
 					<a href="#">
 						<li>我的订单</li>
@@ -51,16 +51,33 @@
 <div class="titlebox">
 			<div class="title">
 				<div class="first">
-					<form>
-						<input type="text" class="txt" id="otxt" placeholder="全棉时代每满200减100" />
-						<ul id="olist"></ul>
+					<form @click="sshow($event)">
+						<input type="text" class="txt" v-model="searchVal" autocomplete="off" @click="gaibian"  id="otxt" placeholder="全棉时代每满200减100" />
+		<table class="goodsheet" v-if="isShow">
+				<tr>
+					<th>商品名</th>
+					<th>单价
+						<span @click="orderFn('price', false)">↑</span>
+						<span @click="orderFn('price', true)">↓</span>
+					</th>
+					<th>销量
+						<span @click="orderFn('sales', false)">↑</span>
+						<span @click="orderFn('sales', true)">↓</span>
+					</th>
+				</tr>
+				<tr v-for='(item, key) in list' :key="key">
+					<td>{{item.name}}</td>
+					<td>{{item.price}}</td>
+					<td>{{item.sales}}万</td>
+				</tr>
+			</table>
 						<span class="iconfont icon-xiangjix
 "></span>
-						<input type="submit" class="sub" value="" />
+						<input type="submit" class="sub" value="" @click="sshow($event)" />
 						<p class="iconfont icon-sousuo"></p>
 					</form>
 					    <div class="cart" @click="toCart">
-						<img src="../images/cart.jpg" />
+						<!-- <img src="../images/cart.jpg" /> -->
 						<span>我的购物车</span>
 						<!--<div class="num"></div>-->
 					</div>
@@ -86,59 +103,22 @@
 						
 					</ul>
 				</div>
-				
-				
-					<div class="bg02">
+				<div class="bg02">
 						<img @click="toDetail" src="../images/bg02.jpg"/>
 					</div>
 				
 			</div>
 		</div>
-<div class="bigbox">
-		<div class="main">
-		<!--  <swiper :options="swiperOption" class="swiper-wrap"  ref="mySwiper" v-if="banner.length!=0"> 
-			<swiper-slide v-for="(item,index) in banner" :key="index" > -->
-			<div class="lunbo"  @click='toDetail' v-for="(item,index) in banner" :key="index">
-					<img :src="item.url" alt="" />
-				<!-- <img class="ig" src="../images/l1.jpg" />
-		     	<img class="ig" src="../images/l2.jpg" />
-				<img class="ig" src="../images/lunbo3.jpg" />
-				<img class="ig" src="../images/lunbo4.jpg" />
-				<img class="ig" src="../images/lunbo5.jpg" />
-				<img class="ig" src="../images/lunbo6.jpg" />
-				<img class="ig" src="../images/lunbo7.jpg" />
-				<img class="ig" src="../images/lunbo8.jpg" /> -->
-			</div>
+			<div class="bigbox">
+		  <div class="main">
+
+		  <swiper :options="swiperOption" class="swiper-wrap"  ref="mySwiper" v-if="banner.length!=0"> 
+			<swiper-slide v-for="(item,index) in banner" :key="index" >
+			<img :src="item.url" alt="" @click="toDetail" />
+			</swiper-slide>
 			
-     		
-    		
-  			<!-- </swiper-slide> -->
-  			<!-- 常见的小圆点 -->
-  			<!-- <div class="swiper-pagination"  v-for="(item,index) in banner" :key="index" slot="pagination" ></div>
-			</swiper> -->
-			<!-- 显示数字 -->
-		<!-- 	<div class="number">{{imgIndex}}/{{detailimages.length}}</div>
- -->
-
-
-
-
-
-
-
-			<div class="btn btn1">></div>
-			<div class="btn btn2">
-				</div>
-					<ul id="num">
-						<li class="li"></li>
-						<li class="li"></li>
-						<li class="li"></li>
-						<li class="li"></li>
-						<li class="li"></li>
-						<li class="li"></li>
-						<li class="li"></li>
-						<li class="li"></li>
-					</ul>
+		  <div class="swiper-pagination"  v-for="(item,index) in banner" :key="index" slot="pagination" ></div> 
+			</swiper> 
 
 					<div class="center">
 						<img @click="toDetail" src="../images/c1.jpg" />
@@ -175,19 +155,10 @@
 							</ul>
 						</div>
 
-						
-
-						
-
 					</div>
 			</div>
 </div>
 			
-				
-
-				
-					
-
 				<div class="fashion">——&nbsp; &nbsp; 时尚达人&nbsp;&nbsp; ——</div>
 
 				<div class="main04box">
@@ -529,7 +500,9 @@
 <script>
 import '../fonts/iconfont.css'
 import '../css/shouyestyle.css'
-import { swiper, swiperSlide } from "vue-awesome-swiper";
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from "vue-awesome-swiper"
+
 
 export default {
 	
@@ -537,6 +510,69 @@ export default {
 		const that = this;
 		return{
 			show:true,
+			isShow:false,
+			goodsList: [
+						//假数据
+						{
+							name: "三星Galaxy Note8",
+							price: 5200,
+							sales: 2.6
+						},
+						{
+							name: "iphone5s",
+							price: 2500,
+							sales: 2.2
+						},
+						{
+							name: "iphone6",
+							price: 2800,
+							sales: 1.6
+						},
+						{
+							name: "iphone6s",
+							price: 3200,
+							sales: 2.9
+						},
+						{
+							name: "iphone7",
+							price: 3800,
+							sales: 12.6
+						},
+						{
+							name: "iphone7plus",
+							price: 4200,
+							sales: 2.1
+						},
+						{
+							name: "iphone8",
+							price: 5500,
+							sales: 10.6
+						},
+						{
+							name: "华为",
+							price: 4600,
+							sales: 7.6
+						},
+						{
+							name: "小米",
+							price: 1200,
+							sales: 32.6
+						},
+						{
+							name: "OPPOR11",
+							price: 3000,
+							sales: 1.2
+						},
+						{
+							name: "vivoX20",
+							price: 3250,
+							sales: 2.9
+						}
+					],
+					searchVal: '', //默认输入为空
+					letter: '', //默认不排序
+					original: false ,//默认从小到大排列
+
         banner:[{
 			url:require('../images/lunbo3.jpg')
 		},
@@ -552,8 +588,12 @@ export default {
 			url:require('../images/lunbo7.jpg')
 		},{
 			url:require('../images/lunbo8.jpg')
+		},{
+				url:require('../images/l1.jpg')
+		},{
+				url:require('../images/l2.jpg')
 		}],
-    
+          
     
       imgIndex: 1,
       swiperOption: {
@@ -594,6 +634,14 @@ export default {
 		}
 	},
 	methods:{
+
+		gaibian(){
+			this.isShow = !this.isShow;
+		},
+		orderFn(letter, original) {
+						this.letter = letter; //排序字段 price or sales
+						this.original = original; //排序方式 up or down
+					},
 		toCart(){
 			this.$router.push({
 				name:'Cart'
@@ -621,6 +669,43 @@ export default {
 		
 		
 	},
+	computed: {
+		  init(){
+				
+				if(sessionStorage.getItem('token')){   //如果返回的是true,则证明是有token值,则显示用户名
+        return `你好,${sessionStorage.getItem('userName')}`
+			}else{
+				return '你好,请登录'
+			}
+			},
+		        
+					list: function() {
+						var _this = this;
+						//逻辑-->根据input的value值筛选goodsList中的数据
+						var arrByZM = []; //声明一个空数组来存放数据
+						for (var i = 0; i < this.goodsList.length; i++) {
+							//for循环数据中的每一项（根据name值）
+							if (this.goodsList[i].name.search(this.searchVal) != -1) {
+								//判断输入框中的值是否可以匹配到数据，如果匹配成功
+								arrByZM.push(this.goodsList[i]);
+								//向空数组中添加数据
+							}
+						}
+						//逻辑-->升序降序排列 false: 默认从小到大 true：默认从大到小
+						//判断，如果要letter不为空，说明要进行排序
+						if (this.letter != '') {
+							arrByZM.sort(function(a, b) {
+								if (_this.original) {
+									return b[_this.letter] - a[_this.letter];
+								} else {
+									return a[_this.letter] - b[_this.letter];
+								}
+							});
+						}
+						//一定要记得返回筛选后的数据
+						return arrByZM;
+					}
+				},
 	components: {
     swiper,
     swiperSlide
@@ -633,6 +718,27 @@ export default {
 </script>
 
 <style>
+
+.swiper-container{
+	width:590px;
+	position: absolute;
+	margin-left:280px;
+}
+.swiper-pagination{
+  background:pink;
+	opacity: 0.8;
+
+}
+.goodsheet{
+	width:500px;
+	height:100px;
+	background:#fff;
+	position: absolute;
+	z-index:100;
+	top:35px;
+	border:1px solid #cecece;
+	
+}
 
 </style>
 

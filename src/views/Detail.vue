@@ -121,41 +121,13 @@
 
 				<!--放大镜-->
 
-				<div class="item-inform">
+				<div class="item-inform" v-for="item in products" :key="item._id">
 					<div class="clearfixLeft" id="clearcontent">
 
 						<div class="box">
-							<!-- <script type="text/javascript">
-								$(document).ready(function() {
-									$(".jqzoom").imagezoom();
-									$("#thumblist li a").click(function() {
-										$(this).parents("li").addClass("tb-selected").siblings().removeClass("tb-selected");
-										$(".jqzoom").attr('src', $(this).find("img").attr("mid"));
-										$(".jqzoom").attr('rel', $(this).find("img").attr("big"));
-									});
-								});
-							</script> -->
-
-							<div class="tb-booth tb-pic tb-s310">
-								<a href="../images/01.jpg"><img src="../images/01_mid.jpg" alt="细节展示放大镜特效" rel="../images/01.jpg" class="jqzoom" /></a>
-							</div>
-							<ul class="tb-thumb" id="thumblist">
-								<li class="tb-selected">
-									<div class="tb-pic tb-s40">
-										<a href="#"><img src="../images/01_small.jpg" mid="../images/01_mid.jpg" big="../images/01.jpg"></a>
-									</div>
-								</li>
-								<li>
-									<div class="tb-pic tb-s40">
-										<a href="#"><img src="../images/02_small.jpg" mid="../images/02_mid.jpg" big="../images/02.jpg"></a>
-									</div>
-								</li>
-								<li>
-									<div class="tb-pic tb-s40">
-										<a href="#"><img src="../images/03_small.jpg" mid="../images/03_mid.jpg" big="../images/03.jpg"></a>
-									</div>
-								</li>
-							</ul>
+							
+							<img-zoom :src="'https://api.cat-shop.penkuoer.com'+item.coverImg" width="400" height="450" :bigsrc="'https://api.cat-shop.penkuoer.com'+item.coverImg" :configs="configs"></img-zoom>
+							
 						</div>
 						<div class="clear"></div>
 					</div>
@@ -163,14 +135,14 @@
 						<!--规格属性-->
 						<!--名称-->
 						<div class="tb-detail-hd">
-							<h1>良品铺子 手剥松子218g 坚果炒货 巴西松子</h1>
+							<h1>{{item.name}}</h1>
 						</div>
 						<div class="tb-detail-list">
 							<!--价格-->
 							<div class="tb-detail-price">
 								<li class="price iteminfo_price">
 									<dt>促销价</dt>
-									<dd><em>¥</em><b class="sys_item_price">56.90</b> </dd>
+									<dd><em>¥</em><b class="sys_item_price">{{item.price}}</b> </dd>
 								</li>
 								<li class="price iteminfo_mktprice">
 									<dt>原价</dt>
@@ -250,9 +222,9 @@
 													<div class="theme-options">
 														<div class="cart-title number">数量</div>
 														<dd>
-															<input id="min" class="am-btn am-btn-default" name="" type="button" value="-" />
-															<input id="text_box" name="" type="text" value="1" style="width:30px;" />
-															<input id="add" class="am-btn am-btn-default" name="" type="button" value="+" />
+															<input id="min" class="am-btn am-btn-default" name="" type="button" value="-" @click="reduce"/>
+															<!-- <input id="text_box" name="" type="text" value="11" style="width:30px;" />--><span>{{item.quantity}}</span> 
+															<input id="add" class="am-btn am-btn-default" name="" type="button" value="+" @click="plus"/>
 															<span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
 														</dd>
 													</div>
@@ -279,9 +251,9 @@
 							<!--活动	-->
 							<div class="shopPromotion gold">
 								<div class="hot">
-									<dt class="tb-metatit">店铺优惠</dt>
+									<dt class="tb-metatit">商品描述</dt>
 									<div class="gold-list">
-										<p>购物满2件打8折，满3件7折<span>点击领券<i class="am-icon-sort-down"></i></span></p>
+										<p>{{item.descriptions}}<span>点击领券<i class="am-icon-sort-down"></i></span></p>
 									</div>
 								</div>
 								<div class="clear"></div>
@@ -309,8 +281,8 @@
 								</div>
 							</li>
 							<li>
-								<div class="clearfix tb-btn tb-btn-basket theme-login">
-									<a id="LikBasket" title="加入购物车" href="#"><i></i>加入购物车</a>
+								<div class="clearfix tb-btn tb-btn-basket theme-login" @click="addToCart">
+									<a id="LikBasket" title="加入购物车" href="#" ><i></i>加入购物车</a>
 								</div>
 							</li>
 						</div>
@@ -1223,8 +1195,65 @@ import '../css/amazeui.css'
 import '../css/demo.css'
 import '../css/optstyle.css'
 import '../css/style.css'
+import imgZoom from 'vue2.0-zoom'
+import {get,post} from 'axios'
+
 export default {
+	components:{
+		imgZoom
+	},
+	data(){
+		return{
+			counter:1,
+			products:[],
+			url:require('../images/01_mid.jpg'),
+			url1:require('../images/01.jpg'),
+			configs: {
+                width: 650,
+                height: 450,
+                maskWidth: 100,
+                maskHeight: 100,
+                maskColor: 'red',
+                maskOpacity: 0.2
+            }
+		}
+	},
     methods:{
+			reduce(){
+			//	console.log(this.$route.params.id)
+				console.log(this.products)
+				if(this.products[0].quantity<2){
+					this.products[0].quantity = 1
+				}else{
+					this.products[0].quantity -= 1
+				}
+			},
+			plus(){
+				if(this.products[0].quantity>99){
+					this.products[0].quantity = 100
+				}else{
+					this.products[0].quantity += 1
+				}
+			},
+			addToCart(){
+				post('http://api.cat-shop.penkuoer.com/api/v1/shop_carts',
+				  
+					{
+						 'quantity':this.products[0].quantity,
+						'product':this.$route.params.id,
+					},{
+					headers:{
+						'Authorization':`bearer ${sessionStorage.getItem('token')}`,
+						
+					}}
+				)
+				.then(res=>{
+					console.log(res)
+				})
+				.catch(err=>{
+					console.log(err)
+				})
+			},
 			Login(){
 				this.$router.push({
 					name:'Login'
@@ -1240,12 +1269,32 @@ export default {
 					name:'Cart'
 				})
 			},
-		}
+		},
+		created(){
+		const	id=this.$route.params.id
+		console.log(id)
+			get(`http://api.cat-shop.penkuoer.com/api/v1/products/${id}`)
+			.then(res=>{
+				console.log(res)				
+				// console.log(res.data.coverImg)
+				this.products.push(res.data)
+				console.log(this.products)
+			})
+			.catch(err=>{
+				console.log(err)
+			})
+		},
 }
 </script>
-<style scoped>
+<style >
 
-
+.box div img{
+	width: 400px;
+	height: 450px;
+}
+form input{
+	border:none;
+}
 </style>
 
 

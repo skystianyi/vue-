@@ -3,8 +3,10 @@ import Router from 'vue-router'
 import Login from './views/Login.vue'
 import Reg from './views/Reg.vue'
 import Detail from './views/Detail.vue'
-import Cart from './views/List.vue'
-//import Home from './views/Home.vue'
+import Cart from './views/Cart.vue'
+import Home from './views/Home.vue'
+import List from './views/List.vue'
+
 
 Vue.use(Router);
 
@@ -22,18 +24,22 @@ const router=new Router({
       name:'Reg',
       component:Reg
   },{
-    path:'/detail',
+    path:'/detail/:id',
     name:'Detail',
     component:Detail,
   },{
     path:'/cart',
     name:'Cart',
     component:Cart,
-  },/* {
+  },{
+    path:'/list',
+    name:'List',
+    component:List,
+  },{
     path:'/',
     name:'Home',
     component:Home,
-} */]
+}]
 
 
 })
