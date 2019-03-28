@@ -4,20 +4,19 @@
 			<ul class="message-l">
 				<div class="topMessage">
 					<div class="menu-hd">
-						<a href="#" target="_top" class="h">亲，请登录</a>
-						<a href="#" target="_top">免费注册</a>
+						<a href="#" target="_top" class="h">{{init}}</a>
 					</div>
 				</div>
 			</ul>
 			<ul class="message-r">
 				<div class="topMessage home">
-					<div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
+					<div class="menu-hd"><a href="#" target="_top" class="h" @click="Home">商城首页</a></div>
 				</div>
 				<div class="topMessage my-shangcheng">
 					<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 				</div>
 				<div class="topMessage mini-cart">
-					<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+					<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top" @click="Cart"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
 				</div>
 				<div class="topMessage favorite">
 					<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
@@ -152,160 +151,7 @@
 											</p>
 										</div>
 									</li>
-									<!-- <li>
-										<div class="i-pic limit">
-											
-											<img src="../images/imgsearch1.jpg" />
-											<p class="title fl">手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
-											<p class="price fl">
-												<b>¥</b>
-												<strong>56.90</strong>
-											</p>
-											<p class="number fl">
-												销量<span>1110</span>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											
-											<img src="../images/imgsearch1.jpg" />
-											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
-											<p class="price fl">
-												<b>¥</b>
-												<strong>56.90</strong>
-											</p>
-											<p class="number fl">
-												销量<span>1110</span>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											
-											<img src="../images/imgsearch1.jpg" />
-											<p class="title fl">手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
-											<p class="price fl">
-												<b>¥</b>
-												<strong>56.90</strong>
-											</p>
-											<p class="number fl">
-												销量<span>1110</span>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											
-											<img src="../images/imgsearch1.jpg" />
-											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
-											<p class="price fl">
-												<b>¥</b>
-												<strong>56.90</strong>
-											</p>
-											<p class="number fl">
-												销量<span>1110</span>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											
-											<img src="../images/imgsearch1.jpg" />
-											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
-											<p class="price fl">
-												<b>¥</b>
-												<strong>56.90</strong>
-											</p>
-											<p class="number fl">
-												销量<span>1110</span>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											
-											<img src="../images/imgsearch1.jpg" />
-											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
-											<p class="price fl">
-												<b>¥</b>
-												<strong>56.90</strong>
-											</p>
-											<p class="number fl">
-												销量<span>1110</span>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											
-											<img src="../images/imgsearch1.jpg" />
-											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
-											<p class="price fl">
-												<b>¥</b>
-												<strong>56.90</strong>
-											</p>
-											<p class="number fl">
-												销量<span>1110</span>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											
-											<img src="../images/imgsearch1.jpg" />
-											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
-											<p class="price fl">
-												<b>¥</b>
-												<strong>56.90</strong>
-											</p>
-											<p class="number fl">
-												销量<span>1110</span>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											
-											<img src="../images/imgsearch1.jpg" />
-											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
-											<p class="price fl">
-												<b>¥</b>
-												<strong>56.90</strong>
-											</p>
-											<p class="number fl">
-												销量<span>1110</span>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											
-											<img src="../images/imgsearch1.jpg" />
-											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
-											<p class="price fl">
-												<b>¥</b>
-												<strong>56.90</strong>
-											</p>
-											<p class="number fl">
-												销量<span>1110</span>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											
-											<img src="../images/imgsearch1.jpg" />
-											<p class="title fl">【良品铺子旗舰店】手剥松子218g 坚果炒货零食新货巴西松子包邮</p>
-											<p class="price fl">
-												<b>¥</b>
-												<strong>56.90</strong>
-											</p>
-											<p class="number fl">
-												销量<span>1110</span>
-											</p>
-										</div>
-									</li> -->
+									
 								</ul>
 							</div>
 							<div class="search-side">
@@ -367,28 +213,6 @@
 								<li><a href="#">&raquo;</a></li>
 							</ul>
 
-						</div>
-					</div>
-					<div class="footer">
-						<div class="footer-hd">
-							<p>
-								<a href="#">恒望科技</a>
-								<b>|</b>
-								<a href="#">商城首页</a>
-								<b>|</b>
-								<a href="#">支付宝</a>
-								<b>|</b>
-								<a href="#">物流</a>
-							</p>
-						</div>
-						<div class="footer-bd">
-							<p>
-								<a href="#">关于恒望</a>
-								<a href="#">合作伙伴</a>
-								<a href="#">联系我们</a>
-								<a href="#">网站地图</a>
-								<em>© 2015-2025 Hengwang.com 版权所有. 更多模板 <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></em>
-							</p>
 						</div>
 					</div>
 				</div>
@@ -566,7 +390,7 @@
 </template>
 <script>
 import '../basic/css/demo.css'
-import '../css/seastyle.css'
+// import '../css/seastyle.css'
 import '../AmazeUI-2.4.2/assets/css/admin.css'
 import '../AmazeUI-2.4.2/assets/css/amazeui.css'
 import {get} from 'axios';
@@ -577,12 +401,34 @@ export default {
     }
   },
   created(){
-       get('http://api.cat-shop.penkuoer.com/api/v1/products')
-       .then(res => {
-          console.log(res.data)
-          this.products=res.data.products
-		  console.log(this.products)
-        })
+	  console.log(this.$route)
+	  if(this.$route.params.name){
+		  get(`http://api.cat-shop.penkuoer.com/api/v1/products?name=${this.$route.params.name}`)
+		  .then(res => {
+		     console.log(res.data)
+		     this.products=res.data.products
+		     console.log(this.products)
+		   })
+		  
+	  }else{
+		   get('http://api.cat-shop.penkuoer.com/api/v1/products')
+		  .then(res => {
+		     console.log(res.data)
+		     this.products=res.data.products
+		  		  console.log(this.products)
+		   })
+	  }
+      
+	},
+	computed:{
+			init(){
+				
+				if(sessionStorage.getItem('token')){   //如果返回的是true,则证明是有token值,则显示用户名
+        return `你好,${sessionStorage.getItem('userName')}`
+			}else{
+				return '你好,请登录'
+			}
+			},
 	},
 	methods:{
 		Detail(id){
@@ -593,10 +439,21 @@ export default {
 				}
 			})
 		},
+		Home(){
+			this.$router.push({
+				name:'Home'
+			})
+		},
+		Cart(){
+			this.$router.push({
+				name:'Cart'
+			})
+		}
 	}
 
 }
 </script>
-<style>
-	#baicao img{width:280px;height:280px}
+<style src='../css/seastyle.css' scoped>
+	
+	
 </style>

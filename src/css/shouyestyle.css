@@ -17,6 +17,26 @@ body {
 	background: #f0f3ef;
 	font-family: "微软雅黑";
 }
+.swiper-container{
+	width:590px;
+	position: absolute;
+	margin-left:280px;
+}
+.swiper-pagination{
+  background:pink;
+	opacity: 0.8;
+
+}
+.goodsheet{
+	width:500px;
+	height:100px;
+	background:#fff;
+	position: absolute;
+	z-index:100;
+	top:35px;
+	border:1px solid #cecece;
+	
+}
 
 #num {
 	position: absolute;

@@ -1,5 +1,5 @@
 <template>
-<div class="sy">
+<div>
    <div class="head" id="header" v-if="show">
 			<a href="#"><img src="../images/head.jpg" /></a>
 			<span class="iconfont icon-cha" id="cha" @click="clearHandle"></span>
@@ -9,20 +9,19 @@
 				<div class="logoList">
 					<div class="dog">
 						<img src="../images/logobig.png" class="jpg" />
-						
+
 					</div>
 					<ul class="lists">
 						<img src="../images/nav.jpg" style="margin-left:20px"/>
 					</ul>
 				</div>
 				<div class="dingwei">
-					
-					
+
 				</div>
 
 				<ul class="list3">
 					<a href="#">
-						<li class="specil"><a class="hello" @click="toLogin" >{{init}}</a><em @click="toReg"><a >免费注册</a></em></li>
+						<li class="specil"><a class="hello" @click="toLogin">{{init}}</a><em @click="toReg"></em></li>
 					</a>
 					<a href="#">
 						<li>我的订单</li>
@@ -51,33 +50,20 @@
 <div class="titlebox">
 			<div class="title">
 				<div class="first">
-					<form @click="sshow($event)">
-						<input type="text" class="txt" v-model="searchVal" autocomplete="off" @click="gaibian"  id="otxt" placeholder="全棉时代每满200减100" />
-		<table class="goodsheet" v-if="isShow">
-				<tr>
-					<th>商品名</th>
-					<th>单价
-						<span @click="orderFn('price', false)">↑</span>
-						<span @click="orderFn('price', true)">↓</span>
-					</th>
-					<th>销量
-						<span @click="orderFn('sales', false)">↑</span>
-						<span @click="orderFn('sales', true)">↓</span>
-					</th>
-				</tr>
-				<tr v-for='(item, key) in list' :key="key">
-					<td>{{item.name}}</td>
-					<td>{{item.price}}</td>
-					<td>{{item.sales}}万</td>
-				</tr>
-			</table>
-						<span class="iconfont icon-xiangjix
-"></span>
-						<input type="submit" class="sub" value="" @click="sshow($event)" />
-						<p class="iconfont icon-sousuo"></p>
+					<form >
+						<input  type="text" class="txt" v-model="searchVal" autocomplete="off" @keyup="gaibian"  @blur="show=false" id="otxt" placeholder="全棉时代每满200减100" />
+						
+	<table class="goodsheet" v-if="show" v-for="(item,id) in products" :key='id'>
+		 <h1>{{item.name}}</h1> 
+	  
+			</table> 
+
+						<span class="iconfont icon-xiangjix"></span>
+						<input type="button" class="sub" value="" @click='toList' />
+						<p class="iconfont icon-sousuo" @click='toList'></p>
 					</form>
 					    <div class="cart" @click="toCart">
-						<!-- <img src="../images/cart.jpg" /> -->
+						<img src="../images/cart.jpg" />
 						<span>我的购物车</span>
 						<!--<div class="num"></div>-->
 					</div>
@@ -501,16 +487,19 @@
 import '../fonts/iconfont.css'
 import '../css/shouyestyle.css'
 import 'swiper/dist/css/swiper.css'
-import { swiper, swiperSlide } from "vue-awesome-swiper"
-
-
+import { swiper, swiperSlide } from "vue-awesome-swiper";
+import {get} from 'axios';
 export default {
-	
+	data:{
+	searchVal:'这是一个测试',
+	},
 	data(){
 		const that = this;
 		return{
+			
 			show:true,
 			isShow:false,
+			products:[],
 			goodsList: [
 						//假数据
 						{
@@ -633,10 +622,31 @@ export default {
 
 		}
 	},
+	
 	methods:{
-
+		toList(){
+			console.log(this.searchVal)
+			
+			this.$router.push({
+				name:'List',
+				params:{
+					name:this.searchVal
+				},
+				
+			})
+		},
 		gaibian(){
-			this.isShow = !this.isShow;
+			this.isShow = true;
+			console.log(this.searchVal)
+		get(`http://api.cat-shop.penkuoer.com/api/v1/products?name=${this.searchVal}`)
+		.then(res=>{
+			
+			console.log(res)
+			this.products=res.data.products;
+		})
+		.catch(err=>{
+			console.log(err)
+		})
 		},
 		orderFn(letter, original) {
 						this.letter = letter; //排序字段 price or sales
@@ -659,7 +669,7 @@ export default {
 		},
 		toDetail(){
 			this.$router.push({
-				name:'Detail'
+				name:'List'
 			})
 		},
 		clearHandle:function(){
@@ -670,7 +680,7 @@ export default {
 		
 	},
 	computed: {
-		  init(){
+			init(){
 				
 				if(sessionStorage.getItem('token')){   //如果返回的是true,则证明是有token值,则显示用户名
         return `你好,${sessionStorage.getItem('userName')}`
@@ -678,7 +688,10 @@ export default {
 				return '你好,请登录'
 			}
 			},
-		        
+		show(){
+			this.isShow = true;
+			return  this.isShow
+		},
 					list: function() {
 						var _this = this;
 						//逻辑-->根据input的value值筛选goodsList中的数据
@@ -717,28 +730,10 @@ export default {
 
 </script>
 
-<style>
+<style scoped src="../css/shouyestyle.css">
 
-.swiper-container{
-	width:590px;
-	position: absolute;
-	margin-left:280px;
-}
-.swiper-pagination{
-  background:pink;
-	opacity: 0.8;
 
-}
-.goodsheet{
-	width:500px;
-	height:100px;
-	background:#fff;
-	position: absolute;
-	z-index:100;
-	top:35px;
-	border:1px solid #cecece;
-	
-}
+
 
 </style>
 
