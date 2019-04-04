@@ -3,7 +3,7 @@
    <div class="head" id="header" v-if="show">
 			<a href="#"><img src="../images/head.jpg" /></a>
 			<span class="iconfont icon-cha" id="cha" @click="clearHandle"></span>
-		</div>
+   </div>
 	<div class="navmain">
 			<div class="nav">
 				<div class="logoList">
